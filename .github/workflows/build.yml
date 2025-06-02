@@ -20,4 +20,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: udp-broadcast-relay-mips64
-          path: udp-broadcast-relay
+          path: ./udp-broadcast-relay
