@@ -6,6 +6,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Install dependencies
         run: sudo apt-get update && sudo apt-get install -y g++-mips64-linux-gnuabi64 make
@@ -13,8 +14,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Build binary
-        run: make CC=mips64-linux-gnuabi64-gcc STATIC=yes
+      - name: Build statically linked binary
+        run: make CC=mips64-linux-gnuabi64-gcc
 
       - name: Output binary as base64
         run: |
