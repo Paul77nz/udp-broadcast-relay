@@ -1,0 +1,25 @@
+name: Build for MIPS64
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install dependencies
+        run: sudo apt-get update && sudo apt-get install -y g++-mips64-linux-gnuabi64 make
+
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Build binary
+        run: make CC=mips64-linux-gnuabi64-gcc STATIC=yes
+
+      - name: Upload binary
+        uses: actions/upload-artifact@v3
+        with:
+          name: udp-broadcast-relay-mips64
+          path: ./udp-broadcast-relay
