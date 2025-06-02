@@ -17,7 +17,7 @@ jobs:
         run: make CC=mips64-linux-gnuabi64-gcc STATIC=yes
 
       - name: Upload binary
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3.1.3
         with:
           name: udp-broadcast-relay-mips64
           path: ./udp-broadcast-relay
